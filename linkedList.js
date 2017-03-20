@@ -5,9 +5,20 @@
  */
 function linkedListGenerator(){
 
+  var _head = null;
+  var _tail = null;
+
+  function getHead() {
+    return _head;
+  }
+
+  function getTail() {
+    return _tail;
+  }
 
   return {
-
+    getHead,
+    getTail
   };
 
 }
