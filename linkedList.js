@@ -80,6 +80,25 @@ function linkedListGenerator(){
 
   function insert(value, number) {
 
+    if (number === 0) {
+      _head = {
+        value: value,
+        next: _head
+      };
+    }
+
+    var currentNode = get(number - 1);
+    var nextNode = currentNode.next;
+
+    if (currentNode === false) {
+      return false;
+    }
+
+    currentNode.next = {
+      value: value,
+      next: nextNode
+    };
+
   }
 
   return {
@@ -96,4 +115,5 @@ function linkedListGenerator(){
 var list = linkedListGenerator();
 list.add("nice");
 list.add("test");
+list.insert("ok", 1)
 console.log(list.get(1));
