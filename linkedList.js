@@ -111,9 +111,3 @@ function linkedListGenerator(){
   };
 
 }
-
-var list = linkedListGenerator();
-list.add("nice");
-list.add("test");
-list.insert("ok", 1)
-console.log(list.get(1));
