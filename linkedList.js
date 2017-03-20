@@ -40,6 +40,23 @@ function linkedListGenerator(){
 
   function get(number) {
 
+    var current = 0;
+    var currentNode = _head;
+
+    if (_head === null) {
+      return false;
+    }
+
+    while (current !== number) {
+      if (currentNode.next === null) {
+        return false;
+      }
+      currentNode = currentNode.next;
+      current++;
+    }
+
+    return currentNode;
+
   }
 
   function insert(value, number) {
@@ -58,4 +75,6 @@ function linkedListGenerator(){
 }
 
 var list = linkedListGenerator();
-console.log(list.add("nice"));
+list.add("nice");
+list.add("test");
+console.log(list.get(1));
