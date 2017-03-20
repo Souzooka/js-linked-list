@@ -5,4 +5,9 @@
  */
 function linkedListGenerator(){
 
+
+  return {
+
+  };
+
 }
