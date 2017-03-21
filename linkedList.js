@@ -26,7 +26,7 @@ function circularLinkedListGenerator() {
           next: _start
         };
         _start.next = node;
-        node = _start;
+        _start = node;
         return node;
       }
 
@@ -50,4 +50,3 @@ var list = circularLinkedListGenerator();
 
 list.insert(12, "dogs");
 console.log(list.insert(0, "fish"));
-console.log(list.getStart());
