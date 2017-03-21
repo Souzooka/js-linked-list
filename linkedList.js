@@ -19,13 +19,15 @@ function linkedListGenerator(){
     if (_head === null) {
       _head = {
         value: value,
-        next: null
+        next: null,
+        previous: null
       };
       _tail = _head;
     } else {
       _tail.next = {
         value: value,
-        next: null
+        next: null,
+        previous: _tail
       };
       _tail = _tail.next;
     }
@@ -34,7 +36,8 @@ function linkedListGenerator(){
 
   function remove(number) {
     var currentNode = get(number);
-    var previousNode = get(number - 1);
+    var previousNode = currentNode.previous;
+    var futureNode = currentNode.next;
 
     if (currentNode === false) {
       return false;
@@ -42,6 +45,7 @@ function linkedListGenerator(){
 
     if (number === 0) {
       _head = currentNode.next;
+      _head.previous = null;
     }
 
     if (currentNode.next === null) {
@@ -49,6 +53,7 @@ function linkedListGenerator(){
     }
 
     previousNode.next = currentNode.next;
+    futureNode.previous = previousNode;
   }
 
   function get(number) {
