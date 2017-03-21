@@ -114,11 +114,3 @@ function linkedListGenerator(){
     insert
   };
 }
-
-
-var list = linkedListGenerator();
-list.add("1");
-list.add("2");
-list.add("3");
-list.insert("0", 1);
-console.log(list.getHead());
