@@ -53,7 +53,9 @@ function linkedListGenerator(){
     }
 
     previousNode.next = currentNode.next;
-    futureNode.previous = previousNode;
+    if (futureNode) {
+      futureNode.previous = previousNode;
+    }
   }
 
   function get(number) {
