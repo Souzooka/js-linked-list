@@ -32,6 +32,17 @@ function circularLinkedListGenerator() {
 
       index = index % _length + 1;
 
+      currentNode = get(index-1);
+      nextNode = get(index);
+
+      node = {
+        value:value,
+        next:nextNode
+      };
+
+      currentNode.next = node;
+      return node;
+
 
 
     }
@@ -75,3 +86,4 @@ var list = circularLinkedListGenerator();
 list.insert(12, "dogs");
 console.log(list.insert(0, "fish"));
 console.log(list.get(1));
+console.log(list.insert(1, "worms"));
