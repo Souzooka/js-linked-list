@@ -4,7 +4,6 @@
  * @return {Object} an object exposing methods to be used to manipulate a linked list
  */
 function linkedListGenerator(){
-
   var _head = null;
   var _tail = null;
 
@@ -17,7 +16,6 @@ function linkedListGenerator(){
   }
 
   function add(value) {
-
     if (_head === null) {
       _head = {
         value: value,
@@ -35,14 +33,12 @@ function linkedListGenerator(){
   }
 
   function remove(number) {
-
-    currentNode = get(number);
+    var currentNode = get(number);
+    var previousNode = get(number - 1);
 
     if (currentNode === false) {
       return false;
     }
-
-    previousNode = get(number - 1);
 
     if (number === 0) {
       _head = currentNode.next;
@@ -53,12 +49,9 @@ function linkedListGenerator(){
     }
 
     previousNode.next = currentNode.next;
-
-
   }
 
   function get(number) {
-
     var current = 0;
     var currentNode = _head;
 
@@ -75,11 +68,9 @@ function linkedListGenerator(){
     }
 
     return currentNode;
-
   }
 
   function insert(value, number) {
-
     if (number === 0) {
       _head = {
         value: value,
@@ -109,5 +100,4 @@ function linkedListGenerator(){
     get,
     insert
   };
-
 }
