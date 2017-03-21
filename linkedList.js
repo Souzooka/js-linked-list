@@ -81,20 +81,26 @@ function linkedListGenerator(){
     if (number === 0) {
       _head = {
         value: value,
-        next: _head
+        next: _head,
+        previous: null
       };
     }
 
     var currentNode = get(number - 1);
-    var nextNode = currentNode.next;
+    var nextNode;
+    var previousNode;
 
     if (currentNode === false) {
       return false;
     }
 
+    nextNode = currentNode.next;
+    previousNode = nextNode.previous;
+
     currentNode.next = {
       value: value,
-      next: nextNode
+      next: nextNode,
+      previous: previousNode
     };
 
   }
@@ -108,3 +114,11 @@ function linkedListGenerator(){
     insert
   };
 }
+
+
+var list = linkedListGenerator();
+list.add("1");
+list.add("2");
+list.add("3");
+list.insert("0", 1);
+console.log(list.getHead());
