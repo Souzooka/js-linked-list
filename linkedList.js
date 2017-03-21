@@ -3,6 +3,9 @@ function circularLinkedListGenerator() {
   var _start = null;
   var _length = 0;
 
+  function getLength() {
+    return _length;
+  }
 
   function getStart() {
     return _start;
@@ -10,7 +13,7 @@ function circularLinkedListGenerator() {
 
   function insert(index, value) {
     var node;
-    if (_length === 0) {
+    if (_start === null) {
       _start = {
         value: value,
         next: null
@@ -27,13 +30,19 @@ function circularLinkedListGenerator() {
         };
         _start.next = node;
         _start = node;
+        _length++;
         return node;
       }
 
       index = index % _length + 1;
+      console.log(index);
+      console.log(_length);
 
       currentNode = get(index-1);
       nextNode = get(index);
+
+      console.log(currentNode);
+      console.log(nextNode);
 
       node = {
         value:value,
@@ -41,10 +50,8 @@ function circularLinkedListGenerator() {
       };
 
       currentNode.next = node;
+      _length++;
       return node;
-
-
-
     }
   }
 
@@ -67,14 +74,25 @@ function circularLinkedListGenerator() {
     }
 
     return currentNode;
+  }
 
+  function remove(index) {
+    if (_start === null) {
+      return null;
+    }
 
+    if (index === 0) {
+      console.log(get(_length-2));
+      _start = _start.next;
+    }
   }
 
   return {
     getStart,
     insert,
-    get
+    get,
+    remove,
+    getLength
   };
 
 
@@ -84,6 +102,11 @@ function circularLinkedListGenerator() {
 var list = circularLinkedListGenerator();
 
 list.insert(12, "dogs");
-console.log(list.insert(0, "fish"));
+list.insert(1, "bears")
+list.insert(2, "worms")
+list.insert(3, "eh")
+console.log(list.get(0));
 console.log(list.get(1));
-console.log(list.insert(1, "worms"));
+console.log(list.get(2));
+console.log(list.get(3));
+list.remove(0);
