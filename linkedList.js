@@ -1,113 +1,34 @@
-/**
- * @name  linkedListGenerator
- * @description  Main Module
- * @return {Object} an object exposing methods to be used to manipulate a linked list
- */
-function linkedListGenerator(){
+function circularLinkedListGenerator() {
 
-  var _head = null;
-  var _tail = null;
+  var _start = null;
+  var _length = 0;
 
-  function getHead() {
-    return _head;
+
+  function getStart() {
+    return _start;
   }
 
-  function getTail() {
-    return _tail;
-  }
-
-  function add(value) {
-
-    if (_head === null) {
-      _head = {
+  function insert(index, value) {
+    if (_length === 0) {
+      _start = {
         value: value,
         next: null
       };
-      _tail = _head;
+      _start.next = _start;
+      length = 1;
+      return _start;
     } else {
-      _tail.next = {
-        value: value,
-        next: null
-      };
-      _tail = _tail.next;
+
     }
-    return _tail;
-  }
-
-  function remove(number) {
-
-    currentNode = get(number);
-
-    if (currentNode === false) {
-      return false;
-    }
-
-    previousNode = get(number - 1);
-
-    if (number === 0) {
-      _head = currentNode.next;
-    }
-
-    if (currentNode.next === null) {
-      _tail = previousNode;
-    }
-
-    previousNode.next = currentNode.next;
-
-
-  }
-
-  function get(number) {
-
-    var current = 0;
-    var currentNode = _head;
-
-    if (_head === null) {
-      return false;
-    }
-
-    while (current !== number) {
-      if (currentNode.next === null) {
-        return false;
-      }
-      currentNode = currentNode.next;
-      current++;
-    }
-
-    return currentNode;
-
-  }
-
-  function insert(value, number) {
-
-    if (number === 0) {
-      _head = {
-        value: value,
-        next: _head
-      };
-    }
-
-    var currentNode = get(number - 1);
-    var nextNode = currentNode.next;
-
-    if (currentNode === false) {
-      return false;
-    }
-
-    currentNode.next = {
-      value: value,
-      next: nextNode
-    };
-
   }
 
   return {
-    getHead,
-    getTail,
-    add,
-    remove,
-    get,
+    getStart,
     insert
   };
 
+
+
 }
+
+console.log(circularLinkedListGenerator().insert(21, "dog"));
