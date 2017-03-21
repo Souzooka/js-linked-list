@@ -9,15 +9,30 @@ function circularLinkedListGenerator() {
   }
 
   function insert(index, value) {
+    var node;
     if (_length === 0) {
       _start = {
         value: value,
         next: null
       };
       _start.next = _start;
-      length = 1;
+      _length = 1;
       return _start;
     } else {
+
+      if (index === 0) {
+        node = {
+          value: value,
+          next: _start
+        };
+        _start.next = node;
+        node = _start;
+        return node;
+      }
+
+      index = index % _length + 1;
+
+
 
     }
   }
@@ -31,4 +46,8 @@ function circularLinkedListGenerator() {
 
 }
 
-console.log(circularLinkedListGenerator().insert(21, "dog"));
+var list = circularLinkedListGenerator();
+
+list.insert(12, "dogs");
+console.log(list.insert(0, "fish"));
+console.log(list.getStart());
